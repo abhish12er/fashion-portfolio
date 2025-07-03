@@ -5,20 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fashion Designer Portfolio</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts & AOS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
     body {
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #f9f6f7, #f1e4e8);
+      background: linear-gradient(to bottom, #e8c2cf, #d5a8b8);
       color: #333;
       overflow-x: hidden;
     }
@@ -36,7 +35,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
+      padding: 20px 30px;
       background: #fff;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       position: fixed;
@@ -61,7 +60,13 @@
       color: #d63384;
     }
 
-    /* Hero Section */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #d63384;
+    }
+
     .hero-section {
       min-height: 100vh;
       padding-top: 120px;
@@ -69,7 +74,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(to top, #f8f0f3, #fff);
+      background: linear-gradient(to top, #f7d1df, #f7d1df);
     }
 
     .hero-container {
@@ -128,55 +133,58 @@
 
     .hero-image img {
       max-width: 280px;
-      height: 360px; /* ✅ reduced height */
+      height: 360px;
       width: 100%;
       border-radius: 10px;
       object-fit: cover;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
-    /* Preview Section */
     .preview-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 80px 60px;
+      padding: 80px 30px;
       background: #fff;
     }
 
     .preview-text {
-      flex: 1;
-      padding-right: 40px;
+      text-align: center;
+      margin-bottom: 30px;
     }
 
     .preview-text h3 {
       font-size: 2rem;
-      margin-bottom: 20px;
       color: #d63384;
     }
 
     .preview-text p {
       font-size: 1rem;
-      line-height: 1.6;
       color: #444;
+      margin-top: 10px;
     }
 
-    .preview-gallery {
-      flex: 2;
+    .swiper-container {
+      width: 100%;
+      padding: 10px 0 40px;
+    }
+
+    .swiper-slide {
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .preview-gallery img {
-      width: calc(33.3% - 14px);
+    .swiper-slide img {
+      width: 90%;
+      max-width: 300px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
     }
 
-    .preview-gallery img:hover {
+    .swiper-slide img:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .swiper-pagination-bullets {
+      bottom: 10px;
     }
 
     .footer {
@@ -187,61 +195,52 @@
       font-size: 0.9rem;
     }
 
-    @media (max-width: 900px) {
-      .hero-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .hero-text h2 {
-        font-size: 2.2rem;
-      }
-
-      .hero-text p {
-        font-size: 1rem;
-      }
-
-      .preview-section {
-        flex-direction: column;
-      }
-
-      .preview-gallery img {
-        width: 100%;
-      }
-
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
       }
 
       .nav-links {
+        display: none;
         flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
+        background: #fff;
+        position: absolute;
+        top: 70px;
+        right: 30px;
+        padding: 15px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        border-radius: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar" data-aos="fade-down">
+  <nav class="navbar">
     <h1 class="logo">Fashionista</h1>
-    <ul class="nav-links">
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
+       <li><a href="behind.html">Behind Work</a></li>
     </ul>
   </nav>
 
-  <!-- Hero Section -->
   <section class="hero-section">
-    <div class="hero-container" data-aos="fade-up">
+    <div class="hero-container">
       <div class="hero-text">
         <h2>Hello, I'm <span>Prakruthi</span></h2>
         <p>Aspiring Fashion Designer | Where every sketch tells a story of elegance and creativity.</p>
-     <a href="portfolio.html" class="btn">Explore My Portfolio</a>
+        <a href="portfolio.html" class="btn">Explore My Portfolio</a>
       </div>
       <div class="hero-image">
         <img src="images/WhatsApp Image 2025-06-18 at 11.46.46.jpeg" alt="Fashion Designer">
@@ -249,32 +248,71 @@
     </div>
   </section>
 
-  <!-- Preview Section -->
   <section class="preview-section">
-    <div class="preview-text" data-aos="fade-right">
+    <div class="preview-text">
       <h3>Latest Creations</h3>
-      <p>Get a glimpse into my recent work—from hand-drawn concepts to finished garments that reflect identity, culture, and personal expression.</p>
+      <p>From concepts to reality—witness my most recent design transformations.</p>
     </div>
-    <div class="preview-gallery" data-aos="fade-left">
-      <img src="images/WhatsApp Image 2025-06-18 at 11.46.43.jpeg" alt="Look 1">
-      <img src="images/WhatsApp Image 2025-06-18 at 11.46.45 (1).jpeg" alt="Look 2">
-      <img src="images/WhatsApp Image 2025-06-18 at 11.46.45.jpeg" alt="Look 3">
+    <div class="swiper-container creation-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/WhatsApp Image 2025-06-18 at 11.46.45.jpeg" alt="Creation 1"></div>
+        <div class="swiper-slide"><img src="images/WhatsApp Image 2025-06-18 at 11.46.45 (1).jpeg" alt="Creation 2"></div>
+        <div class="swiper-slide"><img src="images/WhatsApp Image 2025-06-18 at 11.46.43.jpeg" alt="Creation 3"></div>
+        <div class="swiper-slide"><img src="sketch/IMG_5909.jpg" alt="Creation 4"></div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer" data-aos="fade-up">
+  <section class="preview-section">
+    <div class="preview-text">
+      <h3>Sketches</h3>
+      <p>Initial hand-drawn designs that inspired the finished looks.</p>
+    </div>
+    <div class="swiper-container sketch-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="sketch/IMG_4130.PNG" alt="Sketch 1"></div>
+        <div class="swiper-slide"><img src="sketch/IMG_4131.PNG" alt="Sketch 2"></div>
+        <div class="swiper-slide"><img src="sketch/IMG_4132.PNG" alt="Sketch 3"></div>
+        <div class="swiper-slide"><img src="sketch/IMG_4133.PNG" alt="Sketch 4"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
     <p>© 2025 Aria Designs | Crafted with love and creativity.</p>
   </footer>
 
-  <!-- AOS Animation Script -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
+    AOS.init({ duration: 1000, once: true });
+
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('show');
+    });
+
+    const sliders = document.querySelectorAll('.swiper-container');
+    sliders.forEach(slider => {
+      new Swiper(slider, {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        breakpoints: {
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 }
+        },
+        pagination: {
+          el: slider.querySelector('.swiper-pagination'),
+          clickable: true,
+        },
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        }
+      });
     });
   </script>
-
 </body>
 </html>

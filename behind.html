@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio | Prakruthi</title>
+  <title>Behind the Scenes | Prakruthi</title>
 
+  <!-- Fonts & AOS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
 
     body {
       font-family: 'Roboto', sans-serif;
@@ -18,9 +21,14 @@
       overflow-x: hidden;
     }
 
-    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     .navbar {
       display: flex;
@@ -48,7 +56,9 @@
       gap: 25px;
     }
 
-    .nav-links li a:hover { color: #d63384; }
+    .nav-links li a:hover {
+      color: #d63384;
+    }
 
     .hamburger {
       display: none;
@@ -70,71 +80,67 @@
         border-radius: 10px;
       }
 
-      .nav-links.active { display: flex; }
-      .hamburger { display: block; }
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
     }
 
-    .portfolio-section {
+    .section {
       padding: 140px 40px 80px;
       max-width: 1200px;
       margin: auto;
     }
 
-    .portfolio-header {
+    .section-header {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
-    .portfolio-header h2 {
-      font-size: 2.8rem;
+    .section-header h2 {
+      font-size: 2.5rem;
       color: #d63384;
     }
 
-    .portfolio-grid {
+    .section-header p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    .photo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
     }
 
     .card {
-      background: #fff;
+      background: rgba(255,255,255,0.5);
       border: 6px solid #d63384;
-      border-radius: 15px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
     }
 
-    .card:hover { transform: translateY(-5px); }
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
     .card img {
       width: 100%;
       height: 240px;
-      object-fit: contain;
-      background: #fff;
+      object-fit: cover;
     }
 
     .card-content {
       padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card-content h3 {
-      color: #d63384;
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-    }
-
-    .card-content p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #555;
-      margin-bottom: 20px;
+      text-align: center;
     }
 
     .btn {
@@ -146,21 +152,11 @@
       font-size: 0.95rem;
       cursor: pointer;
       transition: all 0.3s ease;
-      width: fit-content;
     }
 
     .btn:hover {
       background: #b72a6e;
       transform: scale(1.05);
-    }
-
-    .footer {
-      text-align: center;
-      padding: 30px;
-      background: #222;
-      color: #ddd;
-      font-size: 0.9rem;
-      margin-top: 60px;
     }
 
     .modal {
@@ -190,13 +186,19 @@
     .modal-content img {
       width: 100%;
       max-height: 400px;
-      object-fit: contain;
+      object-fit: cover;
       border-radius: 12px;
       margin-bottom: 20px;
     }
 
-    .modal-content h3 { color: #d63384; margin-bottom: 10px; }
-    .modal-content p { color: #555; font-size: 1rem; }
+    .modal-content h3 {
+      color: #d63384;
+      margin-bottom: 10px;
+    }
+
+    .modal-content p {
+      color: #555;
+    }
 
     .close-btn {
       position: absolute;
@@ -207,8 +209,13 @@
       cursor: pointer;
     }
 
-    @media (max-width: 600px) {
-      .portfolio-header h2 { font-size: 2rem; }
+    .footer {
+      text-align: center;
+      padding: 30px;
+      background: #222;
+      color: #ddd;
+      font-size: 0.9rem;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -221,77 +228,67 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="behind-the-scenes.html">Behind the Scenes</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="behind.html">Behind Work</a></li>
     </ul>
   </nav>
 
-  <!-- Portfolio Section -->
-  <section class="portfolio-section">
-    <div class="portfolio-header">
-      <h2>My Portfolio</h2>
-      <p>Each piece reflects my creative vision and attention to detail.</p>
+  <!-- Section -->
+  <section class="section">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Behind the Scenes</h2>
+      <p>Glimpses of the creative process, from sketching to stitching.</p>
     </div>
 
-    <div class="portfolio-grid">
-      <!-- Card 1 -->
-      <div class="card">
-        <img src="images/WhatsApp Image 2025-06-18 at 11.46.43.jpeg" alt="Design 1">
+    <div class="photo-grid">
+      <div class="card" data-aos="zoom-in">
+        <img src="behind/IMG_6262.PNG">
         <div class="card-content">
-          <h3>Urban Elegance</h3>
-          <p>This structured navy mini dress features bold painting on the bodice inspired by the Cologne Cathedral’s rose window and arched entryways.</p>
-          <button class="btn" onclick="showModal('images/WhatsApp Image 2025-06-18 at 11.46.43.jpeg', 'Urban Elegance', 'Modern streetwear meets luxury with bold clean lines and metallic accents.')">Show in Detail</button>
+          <p></p>
+          <button class="btn" onclick="showModal('behind/IMG_6262.PNG','Sketching','Initial concept development')">View Full</button>
         </div>
       </div>
-
-      <!-- Card 2 -->
-      <div class="card">
-        <img src="images/WhatsApp Image 2025-06-18 at 11.46.45 (1).jpeg" alt="Design 2">
+      <div class="card" data-aos="zoom-in">
+        <img src="behind/IMG_6263.PNG">
         <div class="card-content">
-          <h3>Pastel Poise</h3>
-          <p>This navy blue outfit is inspired by the Cologne Cathedral, featuring intricate painting on the shirt that mirrors the cathedral’s iconic spires.</p>
-          <button class="btn" onclick="showModal('images/WhatsApp Image 2025-06-18 at 11.46.45 (1).jpeg', 'Pastel Poise', 'Whispers of softness through flowing silhouettes.')">Show in Detail</button>
+          <p></p>
+          <button class="btn" onclick="showModal('behind/IMG_6263.PNG','Fabric Measuring','Precise measurements for pattern alignment')">View Full</button>
         </div>
       </div>
-
-      <!-- Card 3 -->
-      <div class="card">
-        <img src="images/WhatsApp Image 2025-06-18 at 11.46.45.jpeg" alt="Design 3">
+      <div class="card" data-aos="zoom-in">
+        <img src="behind/IMG_6264.PNG">
         <div class="card-content">
-          <h3>Traditional Revival</h3>
-          <p>This elegant strapless navy gown is inspired by the Cologne Cathedral, featuring structured painting on the bodice that reflects its arched windows.</p>
-          <button class="btn" onclick="showModal('images/WhatsApp Image 2025-06-18 at 11.46.45.jpeg', 'Traditional Revival', 'Bold reinterpretation of tradition with layering.')">Show in Detail</button>
+          <p></p>
+          <button class="btn" onclick="showModal('behind/IMG_6264.PNG','Cutting','Pattern cutting phase')">View Full</button>
         </div>
       </div>
-
-      <!-- Card 4 -->
-      <div class="card">
-        <img src="portfolio/WhatsApp Image 2025-07-02 at 10.35.21 (2).jpeg" alt="Design 4">
+      <div class="card" data-aos="zoom-in">
+        <img src="behind/IMG_6265.PNG">
         <div class="card-content">
-          <h3>Monochrome Muse</h3>
-          <p>The standout feature is the painting on the shirt, which artistically interprets the cathedral’s elements in minimalist style.</p>
-          <button class="btn" onclick="showModal('portfolio/WhatsApp Image 2025-07-02 at 10.35.21 (2).jpeg', 'Monochrome Muse', 'Striking contrasts with minimalist beauty.')">Show in Detail</button>
+          <p></p>
+          <button class="btn" onclick="showModal('behind/IMG_6265.PNG','Sewing','Bringing pieces together')">View Full</button>
         </div>
       </div>
-
-      <!-- Card 5 -->
-      <div class="card">
-        <img src="portfolio/WhatsApp Image 2025-07-02 at 10.35.21.jpeg" alt="Design 5">
+      <div class="card" data-aos="zoom-in">
+        <img src="behind/IMG_6266.PNG">
         <div class="card-content">
-          <h3>Bold Bloom</h3>
-          <p>This navy blue gown with a flowy cape is inspired by cologne cathedral, featuring structured painting on the cape that reflects arched windows.</p>
-          <button class="btn" onclick="showModal('portfolio/WhatsApp Image 2025-07-02 at 10.35.21.jpeg', 'Bold Bloom', 'Bright blooming prints in sharp forms.')">Show in Detail</button>
+          <p>Final fitting.</p>
+          <button class="btn" onclick="showModal('behind/IMG_6266.PNG','Fitting','Ensuring perfect fit')">View Full</button>
         </div>
       </div>
-
-      <!-- Card 6 -->
-      <div class="card">
-        <img src="portfolio/WhatsApp Image 2025-07-02 at 10.35.22.jpeg" alt="Design 6">
+      <div class="card" data-aos="zoom-in">
+        <img src="behind/IMG_6267.PNG">
         <div class="card-content">
-          <h3>Evening Royal</h3>
-          <p>This bold navy blue ensemble features a structured silhouette with puffed sleeves and Gothic chest painting inspired by the cathedral.</p>
-          <button class="btn" onclick="showModal('portfolio/WhatsApp Image 2025-07-02 at 10.35.22.jpeg', 'Evening Royal', 'A regal look with timeless satin sheen.')">Show in Detail</button>
+          <p></p>
+          <button class="btn" onclick="showModal('behind/IMG_6267.PNG','Ironing','Last step before shoot')">View Full</button>
+        </div>
+      </div>
+      <div class="card" data-aos="zoom-in">
+        <img src="behind/IMG_6268.PNG">
+        <div class="card-content">
+          <p></p>
+          <button class="btn" onclick="showModal('behind/IMG_6268.PNG','Shoot Prep','Setting stage for final shoot')">View Full</button>
         </div>
       </div>
     </div>
@@ -308,8 +305,8 @@
   </div>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 Prakruthi | Every thread tells a story.</p>
+  <footer class="footer" data-aos="fade-up">
+    <p>© 2025 Prakruthi | Every detail stitched with purpose.</p>
   </footer>
 
   <!-- Scripts -->
