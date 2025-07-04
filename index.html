@@ -12,14 +12,17 @@
 
   <style>
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(to bottom, #e8c2cf, #d5a8b8);
       color: #333;
-      overflow-x: hidden;
     }
 
     h1, h2, h3 {
@@ -35,13 +38,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 30px;
+      padding: 20px;
       background: #fff;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       position: fixed;
       top: 0;
-      width: 100%;
+      left: 0;
+      right: 0;
       z-index: 1000;
+      width: 100%;
     }
 
     .logo {
@@ -110,10 +115,11 @@
       margin-bottom: 30px;
     }
 
-    .btn-group {
+    .button-group {
       display: flex;
-      flex-wrap: wrap;
       gap: 15px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
     }
 
     .btn {
@@ -124,7 +130,6 @@
       border-radius: 25px;
       font-size: 1rem;
       transition: all 0.3s ease;
-      min-width: 180px;
       text-align: center;
     }
 
@@ -210,7 +215,7 @@
         background: #fff;
         position: absolute;
         top: 70px;
-        right: 30px;
+        right: 20px;
         padding: 15px;
         box-shadow: 0 6px 18px rgba(0,0,0,0.1);
         border-radius: 10px;
@@ -229,10 +234,6 @@
         text-align: center;
       }
 
-      .btn-group {
-        justify-content: center;
-      }
-
       .hero-text h2 {
         font-size: 2rem;
       }
@@ -241,10 +242,14 @@
         font-size: 1rem;
       }
 
+      .button-group {
+        justify-content: center;
+      }
+
       .hero-image img {
         max-width: 90%;
         height: auto;
-        max-height: 360px;
+        max-height: 320px;
       }
     }
   </style>
@@ -257,9 +262,8 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="about.html">About</a></li>
-       <li><a href="behind.html">Behind Work</a></li>
       <li><a href="contact.html">Contact</a></li>
-     
+      <li><a href="behind.html">Behind Work</a></li>
     </ul>
   </nav>
 
@@ -268,7 +272,7 @@
       <div class="hero-text">
         <h2>Hello, I'm <span>Prakruthi</span></h2>
         <p>Aspiring Fashion Designer | Where every sketch tells a story of elegance and creativity.</p>
-        <div class="btn-group">
+        <div class="button-group">
           <a href="portfolio.html" class="btn">Explore My Portfolio</a>
           <a href="Prakruthi_CV.pdf" class="btn" download>Download CV</a>
         </div>
