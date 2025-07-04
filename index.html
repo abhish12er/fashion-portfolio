@@ -107,7 +107,13 @@
       color: #555;
       max-width: 600px;
       line-height: 1.5;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     .btn {
@@ -118,6 +124,8 @@
       border-radius: 25px;
       font-size: 1rem;
       transition: all 0.3s ease;
+      min-width: 180px;
+      text-align: center;
     }
 
     .btn:hover {
@@ -132,9 +140,9 @@
     }
 
     .hero-image img {
+      width: 100%;
       max-width: 280px;
       height: 360px;
-      width: 100%;
       border-radius: 10px;
       object-fit: cover;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -183,10 +191,6 @@
       transform: scale(1.05);
     }
 
-    .swiper-pagination-bullets {
-      bottom: 10px;
-    }
-
     .footer {
       text-align: center;
       padding: 30px;
@@ -219,6 +223,29 @@
       .nav-links li {
         margin: 10px 0;
       }
+
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .btn-group {
+        justify-content: center;
+      }
+
+      .hero-text h2 {
+        font-size: 2rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+
+      .hero-image img {
+        max-width: 90%;
+        height: auto;
+        max-height: 360px;
+      }
     }
   </style>
 </head>
@@ -230,8 +257,9 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
        <li><a href="behind.html">Behind Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+     
     </ul>
   </nav>
 
@@ -240,7 +268,10 @@
       <div class="hero-text">
         <h2>Hello, I'm <span>Prakruthi</span></h2>
         <p>Aspiring Fashion Designer | Where every sketch tells a story of elegance and creativity.</p>
-        <a href="portfolio.html" class="btn">Explore My Portfolio</a>
+        <div class="btn-group">
+          <a href="portfolio.html" class="btn">Explore My Portfolio</a>
+          <a href="Prakruthi_CV.pdf" class="btn" download>Download CV</a>
+        </div>
       </div>
       <div class="hero-image">
         <img src="images/WhatsApp Image 2025-06-18 at 11.46.46.jpeg" alt="Fashion Designer">
